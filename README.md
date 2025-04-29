@@ -1,34 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Struktur file pada website lernen berbasis next.js
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```
+LERNEN-STATIC/
+├── .next/
+├── components/
+│   ├── BlogList.js
+│   ├── CTA.js
+│   ├── Footer.js
+│   └── Navbar.js
+├── lib/
+│   └── posts.js
+├── node_modules/
+├── out/                  ← hasil export dari `next export`
+├── pages/
+│   ├── api/
+│   ├── blog/
+│   │   └── index.js
+│   ├── posts/
+│   │   └── [slug].js     ← halaman dinamis berdasarkan markdown
+│   ├── _app.js
+│   ├── _document.js
+│   ├── core-program.js
+│   ├── index.js
+│   ├── mini-course.js
+│   └── scholarship-care.js
+├── posts/                ← markdown blog post disimpan di sini
+│   ├── 2025-04-22-beasiswa_2025.md
+│   ├── 2025-04-27-strategi_beasiswa_2025.md
+│   └── 2025-04-28-7_best_country.md
+├── public/
+├── styles/
+│   └── globals.css
+├── .eslintrc.json
+├── .gitignore
+├── next.config.js
+├── package-lock.json
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Eksekusi :
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+npm run dev → Menjalankan Next.js dalam mode development (localhost, hot reload).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+npm run build → Membuat versi production build (untuk deploy).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+npm run export → Mengekspor Next.js ke static HTML files (SSG) ke folder out/.
