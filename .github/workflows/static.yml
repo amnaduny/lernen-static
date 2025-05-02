@@ -26,12 +26,11 @@ jobs:
           npm run build
           npm run export
 
-      - name: Deploy to Dewaweb via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v3.1.1
+      - name: Upload to FTP Server
+        uses: sebastianpopp/ftp-action@v1.2.0
         with:
-          ftp-server: ${{ secrets.FTP_HOST }}
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_TARGET_DIR }}
-          local-dir: ./out
-
+          host: ${{ secrets.FTP_HOST }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: ./out
+          remoteDir: ${{ secrets.FTP_TARGET_DIR }}
