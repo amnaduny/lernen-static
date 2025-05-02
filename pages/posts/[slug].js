@@ -61,7 +61,7 @@ export default function Post({ post }) {
             <img
               src={post.background}
               alt={post.title}
-              className="hero-image img-fluid"
+              className="hero-image"
             />
           )}
         </div>
