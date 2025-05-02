@@ -26,11 +26,11 @@ jobs:
           npm run build
           npm run export
 
-      - name: Upload to FTP Server
-        uses: sebastianpopp/ftp-action@v1.2.0
+      - name: Upload to FTP (Dewaweb)
+        uses: elstudio/actions-upload-ftp@v1
         with:
-          host: ${{ secrets.FTP_HOST }}
-          user: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          localDir: ./out
-          remoteDir: ${{ secrets.FTP_TARGET_DIR }}
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out
+          remote-dir: ${{ secrets.FTP_TARGET_DIR }}
