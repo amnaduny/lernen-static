@@ -1,4 +1,4 @@
-name: Deploy Static Next.js to Dewaweb via FTP
+name: Deploy Static Next.js via FTP
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,11 +26,10 @@ jobs:
           npm run build
           npm run export
 
-      - name: Upload to FTP (Dewaweb)
-        uses: elstudio/actions-upload-ftp@v1
+      - name: Upload via FTP
+        uses: git-ftp/action@v5
         with:
-          ftp-server: ${{ secrets.FTP_HOST }}
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          url: ftp://${{ secrets.FTP_HOST }}/${{ secrets.FTP_TARGET_DIR }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out
-          remote-dir: ${{ secrets.FTP_TARGET_DIR }}
