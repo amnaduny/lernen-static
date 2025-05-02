@@ -41,8 +41,8 @@ LERNEN-STATIC/
 
 Eksekusi :
 
-npm run dev → Menjalankan Next.js dalam mode development (localhost, hot reload).
+1. npm run dev → Menjalankan Next.js dalam mode development (localhost, hot reload).  
+2. npm run build → Membuat versi production build (untuk deploy).  
+3. npm run export → Mengekspor Next.js ke static HTML files (SSG) ke folder out/.  
 
-npm run build → Membuat versi production build (untuk deploy).
-
-npm run export → Mengekspor Next.js ke static HTML files (SSG) ke folder out/.
+Versi dependencies bisa dicek di `package.json`
