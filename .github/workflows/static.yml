@@ -1,12 +1,12 @@
-name: Deploy Static Next.js via FTP
+name: Deploy Static Next.js to Dewaweb via FTP
 
 on:
   push:
     branches:
-      - main
+      - main  # Ubah jika Anda menggunakan branch lain
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '16'  # Sesuaikan dengan versi proyek Anda
 
       - name: Install dependencies
         run: npm install
@@ -26,10 +26,11 @@ jobs:
           npm run build
           npm run export
 
-      - name: Upload via FTP
-        uses: git-ftp/action@v5
+      - name: Deploy to Dewaweb via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          url: ftp://${{ secrets.FTP_HOST }}/${{ secrets.FTP_TARGET_DIR }}
-          user: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_TARGET_DIR }}
           local-dir: ./out
