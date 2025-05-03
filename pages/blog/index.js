@@ -6,7 +6,7 @@ import Head from "next/head";
 
 export default function HomeBlog({ posts }) {
   return (
-    <div>
+    <div className="blog-container">
       <Head>
         <title>Blog Beasiswa | Lernen Education</title>
       </Head>

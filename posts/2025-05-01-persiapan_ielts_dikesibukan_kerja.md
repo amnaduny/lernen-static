@@ -2,7 +2,7 @@
 title: "Persiapan IELTS di Tengah Kesibukan Kerja? 5 Tips Praktis untuk Membantu Kamu Belajar Setiap Hari"
 author: "Radesma Hermawan"
 date: "2025-05-1"
-background: "/assets/blog-article/ielts_preparation.jpg"
+background: "/assets/blog-article/english-book-ielts-prep.webp"
 writer: "/assets/mentor-section/radesma-hermawan.webp"
 ---
 

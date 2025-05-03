@@ -11,7 +11,7 @@
 
   --font-style--poppins: 'Poppins';
   --font-style--plus-jakarta: 'Plus Jakarta Sans';
-  
+
   --font-size-h1-desktop: 56px;
   --font-size-h2-desktop: 40px;
   --font-size-h3-desktop: 28px;
@@ -26,13 +26,13 @@
   --font-size-h2-mobile: 28px;
   --font-size-h3-mobile: 20px;
   --font-size-p-mobile: 14px;
-  
+
   --font-size-h1-small-mobile: 30px;
   --font-size-h2-small-mobile: 24px;
   --font-size-h3-small-mobile: 16px;
   --font-size-p-small-mobile: 12px;
 
-  
+
   --bold: 700;
   --semi-bold: 600;
   --medium: 500;
@@ -70,40 +70,40 @@ html {
 .responsive-text h4,
 .responsive-text h5,
 .responsive-text h6 {
-    font-family: var(--font-style--poppins);
-    font-weight: var(--bold);
+  font-family: var(--font-style--poppins);
+  font-weight: var(--bold);
 }
 
 .responsive-text p,
 .responsive-text li {
-    font-family: var(--font-style--plus-jakarta);
+  font-family: var(--font-style--plus-jakarta);
 }
 
 .container {
-    padding: 0.25rem;
+  padding: 0.25rem;
 }
 
 .check-list {
-    list-style: none;
-    padding-left: 1rem;
+  list-style: none;
+  padding-left: 1rem;
 }
 
 .check-list li::before {
-    content: "✔";
-    color: rgb(0, 0, 0);
-    margin-right: 8px;
+  content: "✔";
+  color: rgb(0, 0, 0);
+  margin-right: 8px;
 }
 
 .no-scrollbar::-webkit-scrollbar {
-    display: none; 
+  display: none;
 }
 
 .separator {
-    border-top: 1px solid #837a7a; 
-    width: 75%; 
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
+  border-top: 1px solid #837a7a;
+  width: 75%;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Navbar */
@@ -188,8 +188,8 @@ html {
 
 .hero {
   /* npm run dev */
-  background: url('/assets/hero-object.webp') center center, 
-  linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  background: url('/assets/hero-object.webp') center center,
+    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
 
   /* build for github pages */
   /* background: url('/lernen-website-static-nextjs/assets/hero-object.webp') center center, 
@@ -216,8 +216,8 @@ html {
 /* Why Us Section */
 .why-us {
   /* npm run dev */
-  background: url('/assets/background-sections.svg') no-repeat fixed center, 
-  linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  background: url('/assets/background-sections.svg') no-repeat fixed center,
+    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
 
   /* build for github pages */
   /* background: url('/lernen-website-static-nextjs/assets/background-sections.svg') no-repeat fixed center, 
@@ -254,7 +254,7 @@ html {
 
 .program-section .cards-wrapper {
   display: flex;
-  
+
   justify-content: center;
 }
 
@@ -274,14 +274,14 @@ html {
 .program-section .image-wrapper img {
   width: 100%;
   height: 100%;
-  
-  
+
+
   border-radius: 50%;
   padding: 0.5rem;
   margin-top: 0.5rem;
 }
 
-.program-section .carousel-control-prev, 
+.program-section .carousel-control-prev,
 .program-section .carousel-control-next {
   background-color: #e1e1e1;
   width: 6vh;
@@ -299,8 +299,8 @@ html {
 
 /* Course Program */
 .course-program {
-  background: url('/assets/background-sections.svg') no-repeat fixed center, 
-  linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  background: url('/assets/background-sections.svg') no-repeat fixed center,
+    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
   background-size: contain;
   background-blend-mode: overlay;
 }
@@ -384,8 +384,8 @@ html {
 /* Mentor Section */
 .mentor-section {
   /* npm run dev */
-  background: url('/assets/background-sections.svg') no-repeat fixed center, 
-  linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  background: url('/assets/background-sections.svg') no-repeat fixed center,
+    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
 
   /* build for github pages */
   /* background: url('/lernen-website-static-nextjs/assets/background-sections.svg') no-repeat fixed center, 
@@ -427,7 +427,7 @@ html {
   border: solid 1px black;
 }
 
-.mentor-section .carousel-control-prev, 
+.mentor-section .carousel-control-prev,
 .mentor-section .carousel-control-next {
   background-color: #e1e1e1;
   width: 6vh;
@@ -458,8 +458,8 @@ html {
   padding: 3rem;
   display: block;
   /* npm run dev */
-  background: url('/assets/background-sections.svg') no-repeat fixed center, 
-  linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  background: url('/assets/background-sections.svg') no-repeat fixed center,
+    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
 
   /* build for github pages */
   /* background: url('/lernen-website-static-nextjs/assets/background-sections.svg') no-repeat fixed center, 
@@ -528,6 +528,11 @@ html {
 }
 
 /* Blog */
+.blog-container {
+  margin: 2rem auto;
+  width: 75%;
+}
+
 .heroBlog .hr-hero-blog {
   width: 800px;
   margin: 2rem auto;
@@ -565,11 +570,11 @@ html {
 }
 
 .heroArticle {
-  margin-top: 2rem;
-  margin-left: 12rem;
-  margin-right: 12rem;
+  margin: 2rem auto;
   border: var(--border);
   border-radius: 0.5rem;
+  width: 50%;
+  line-height: 1.8;
 }
 
 .heroArticle .hero-image {
@@ -615,7 +620,7 @@ html {
     font-size: 16px;
   }
 
-  .responsive-text p, 
+  .responsive-text p,
   .responsive-text li {
     font-size: 14px;
   }
@@ -675,32 +680,32 @@ html {
 
   /* Course Program */
   .course-program .card {
-      width: 200px;
-      height: 225px;
+    width: 200px;
+    height: 225px;
   }
 
   .course-program .card.scholarship-care {
-      width: 200px;
-      height: 325px;
+    width: 200px;
+    height: 325px;
   }
 
   .course-program .card.core-program {
-      width: 200px;
-      height: 230px;
+    width: 200px;
+    height: 230px;
   }
-  
+
   .course-program img {
-      width: 70px;
-      height: 70px;
+    width: 70px;
+    height: 70px;
   }
 
   .course-program .facility img {
-      width: 60px;
-      height: 60px;
+    width: 60px;
+    height: 60px;
   }
 
   .course-program .facility p {
-      display: none;
+    display: none;
   }
 
   /* Mentor Section */
@@ -729,7 +734,7 @@ html {
     border: solid 1px black;
   }
 
-  .mentor-section .carousel-control-prev, 
+  .mentor-section .carousel-control-prev,
   .mentor-section .carousel-control-next {
     display: none;
     width: 2vh;
@@ -768,6 +773,11 @@ html {
   }
 
   /* Blog */
+  .blog-container {
+    margin: 2rem auto;
+    width: 100%;
+  }
+
   .heroBlog {
     margin: 1rem 2%;
   }
@@ -788,8 +798,8 @@ html {
   }
 
   .heroArticle {
-    margin-left: 1%;
-    margin-right: 1%;
+    margin: 2rem auto;
+    width: 90%;
   }
 
   .heroArticle .writer-image {
@@ -879,8 +889,8 @@ html {
   }
 
   .course-program img {
-      width: 90px;
-      height: 90px;
+    width: 90px;
+    height: 90px;
   }
 
   /* Mentor Section */
@@ -918,13 +928,18 @@ html {
   }
 
   /* Blog */
+  .blog-container {
+    margin: 2rem auto;
+    width: 100%;
+  }
+
   .heroBlog {
     margin-left: 5rem;
     margin-right: 5rem;
   }
 
   .heroBlog .hr-hero-blog {
-    width: 500px;
+    width: 100%;
     margin: 2rem auto;
   }
 
@@ -939,8 +954,8 @@ html {
   }
 
   .heroArticle {
-    margin-left: 4rem;
-    margin-right: 4rem;
+    margin: 2rem auto;
+    width: 80%;
   }
 
   .heroArticle .writer-image {
@@ -1050,13 +1065,19 @@ html {
   }
 
   /* Blog */
+  .blog-container {
+    margin: 2rem auto;
+    width: 90%;
+  }
+
   .heroBlog .hr-hero-blog {
     width: 650px;
   }
 
+  /* Blog */
   .heroArticle {
-    margin-left: 8rem;
-    margin-right: 8rem;
+    margin: 2rem auto;
+    width: 70%;
   }
 }
 
@@ -1065,5 +1086,30 @@ html {
   /* FAQ Section */
   .faq-section .accordion-item {
     width: 60vw;
-  }   
+  }
+
+  /* Blog */
+  .blog-container {
+    margin: 2rem auto;
+    width: 80%;
+  }
+
+  .heroArticle {
+    margin: 2rem auto;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+
+  /* Blog */
+  .blog-container {
+    margin: 2rem auto;
+    width: 80%;
+  }
+
+  .heroArticle {
+    margin: 2rem auto;
+    width: 60%;
+  }
 }
