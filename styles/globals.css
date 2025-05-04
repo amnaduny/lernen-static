@@ -268,14 +268,16 @@ html {
 
 .program-section .image-wrapper {
   height: 15vw;
+  width: 15vw;
   margin: 0 auto;
+  padding: 0.5rem;
 }
 
 .program-section .image-wrapper img {
   width: 100%;
   height: 100%;
 
-
+  border: 2px solid rgb(119, 113, 113);
   border-radius: 50%;
   padding: 0.5rem;
   margin-top: 0.5rem;
@@ -674,6 +676,10 @@ html {
     border-radius: 0.5rem;
   }
 
+  .program-section .image-wrapper {
+    margin: 0 auto;
+  }
+
   .program-section .card-body {
     padding: 1rem;
   }
@@ -881,6 +887,8 @@ html {
 
   .program-section .image-wrapper {
     height: 20vw;
+    width: 20vw;
+    padding: 0;
   }
 
   /* Course Program */
@@ -1036,8 +1044,11 @@ html {
     width: calc(100%/2);
   }
 
+
   .program-section .image-wrapper {
     height: 20vw;
+    width: 20vw;
+    padding: 0.25rem;
   }
 
   /* Mentor Section */

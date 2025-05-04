@@ -23,7 +23,7 @@ export default function HomePage() {
   const programSection = [
     {
       title: "CORE PROGRAM",
-      image: "/assets/programs-section/core-program.webp",
+      image: "/assets/programs-section/core-program-new.webp",
       forText: ["Untuk persiapan masuk", "S1 dan S2"],
       listItems: [
         "1 sampai 10 peserta per mentor*",
@@ -38,7 +38,7 @@ export default function HomePage() {
     },
     {
       title: "SCHOLARSHIP CARE",
-      image: "/assets/programs-section/scholarship-care.webp",
+      image: "/assets/programs-section/scholarship-care-new.webp",
       forText: ["Untuk semua jenjang", "S1, S2 & S3"],
       listItems: [
         "1 sampai 3 peserta per mentor*",
@@ -53,7 +53,7 @@ export default function HomePage() {
     },
     {
       title: "MINI COURSE",
-      image: "/assets/programs-section/mini-course.webp",
+      image: "/assets/programs-section/mini-course-new.webp",
       forText: ["Untuk persiapan masuk", "S1 & S2"],
       listItems: [
         "20 peserta per mentor",
@@ -599,8 +599,8 @@ export default function HomePage() {
                 Lernen.
               </p>
               <Link href="https://wa.me/+6282337506356?text=Halo%20Lernen%20Indonesia!">
-                <a 
-                  
+                <a
+
                   className="btn custom-btn mx-auto"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -668,7 +668,7 @@ export default function HomePage() {
               yang interaktif dan fleksibel !!!
             </p>
           </div>
-          
+
           {/* Carousel for Big Screen */}
           <div
             id="carouselMentorBigScreenProgramSection"
@@ -712,7 +712,7 @@ export default function HomePage() {
                       <div className="d-flex mx-2">
                         <Link href={program.link.href}>
                           <a className="btn custom-btn d-lg-block mx-auto">
-                          {program.link.text}
+                            {program.link.text}
                           </a>
                         </Link>
                       </div>
@@ -746,7 +746,7 @@ export default function HomePage() {
             </button>
           </div>
 
-          {/* Carousel for Medium Screen */}         
+          {/* Carousel for Medium Screen */}
           <div
             id="carouselMentorMediumScreenProgramSection"
             className="carousel carousel-dark slide d-none d-md-block d-lg-none"
@@ -938,7 +938,7 @@ export default function HomePage() {
                     </div>
                     <div className="d-flex mx-2">
                       <Link href={program.link}>
-                        <a  className="btn custom-btn d-lg-block mx-auto">
+                        <a className="btn custom-btn d-lg-block mx-auto">
                           Lebih Lanjut
                         </a>
                       </Link>
@@ -957,15 +957,15 @@ export default function HomePage() {
         <div className="container">
           <div className="title responsive-text text-center" data-aos="zoom-in">
             <h2>
-              Dibimbing oleh Mentor-Mentor yang Keren 
+              Dibimbing oleh Mentor-Mentor yang Keren
               dan Berkualitas
             </h2>
             <p>
-              Mentor berpengalaman yang merupakan penerima beasiswa ternama seperti <br/>
+              Mentor berpengalaman yang merupakan penerima beasiswa ternama seperti <br />
               LPDP, MEXT, Erasmus Mundus dan program beasiswa bergengsi lainnya
             </p>
           </div>
-          
+
           {/* Carousel Mentor Big Screen */}
           <div
             id="carouselMentorBigScreenMentorSection"
@@ -1030,7 +1030,7 @@ export default function HomePage() {
               <span className="visually-hidden">Next</span>
             </button>
           </div>
-          
+
           {/* Carousel Mentor Medium Screen */}
           <div
             id="carouselMentorMediumScreenMentorSection"
@@ -1049,7 +1049,7 @@ export default function HomePage() {
                     {slide.map((mentor, index) => (
                       <div key={index} className="card">
                         <div className="image-wrapper">
-                          <img 
+                          <img
                             src={mentor.image}
                             alt={mentor.name}
                           />
@@ -1151,7 +1151,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
+
       {/* FAQ Section */}
       <section className="faq-section">
         <div className="container">
@@ -1235,7 +1235,7 @@ export default function HomePage() {
                     className="content d-flex align-items-center text-left"
                     data-aos="zoom-in"
                   >
-                    <img 
+                    <img
                       src={step.image}
                       alt={`Step ${index + 1}`}
                     />
