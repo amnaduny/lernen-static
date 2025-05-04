@@ -178,6 +178,23 @@ html {
   background-color: var(--bg-button-darker) !important;
 }
 
+/* Floating-Cta */
+.floating-cta {
+  position: fixed;
+  bottom: 1rem;  
+  right: 1rem;   
+  z-index: 1050;
+  text-align: right;
+}
+.cta-text{
+  font-size:1.2rem; 
+  background: rgba(255, 255, 255, 0.692);
+  max-width: 20rem;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);
+  text-align: Left;
+}
 /* Hero Section */
 .block-word {
   display: inline-block;
