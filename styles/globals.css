@@ -529,6 +529,50 @@ html {
   font-size: 12px;
 }
 
+
+/* Share Button */
+.social-share-buttons button {
+  margin: 10px;
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-share-buttons .btn-social-icon {
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.social-share-buttons .fab {
+  margin-right: 8px;
+}
+
+.social-share-buttons .btn-facebook {
+  color: #3b5998;
+}
+
+.social-share-buttons .btn-twitter {
+  color: #1da1f2;
+}
+
+.social-share-buttons .btn-linkedin {
+  color: #0077b5;
+}
+
+.social-share-buttons .btn-whatsapp {
+  color: #25d366;
+}
+
+.social-share-buttons .btn-instagram {
+  color: #e1306c;
+}
+
+.social-share-buttons .btn-tiktok {
+  color: #000;
+}
+
+
 /* Blog */
 .blog-container {
   margin: 2rem auto;
