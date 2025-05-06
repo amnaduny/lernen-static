@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function FloatingCTA() {
   return (
     <div className="floating-cta">
-      <p className="cta-text" mb-1>Hi!👋<br />
+      <p className="cta-text">Hi!👋<br />
       Kalau kamu butuh bantuan, Hubungi kami via WhatsApp ya !</p>
       <a
         href="https://wa.me/6282337506356?text=Halo%20Lernen%20Indonesia!"
