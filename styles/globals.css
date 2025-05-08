@@ -597,6 +597,46 @@ html {
   margin: 0.5rem auto;
 }
 
+/* Baca Juga Box Styles */
+.baca-juga-box {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.baca-juga-box strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #212529;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.baca-juga-box ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.baca-juga-box li {
+  margin-bottom: 8px;
+}
+
+.baca-juga-box a {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.baca-juga-box a:hover {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+
 @media (max-width: 575.98px) {
   html {
     scroll-padding-top: 300px;
