@@ -631,6 +631,42 @@ html {
   margin-bottom: 0.5rem;
 }
 
+.heroArticle .baca-juga-box {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.heroArticle .baca-juga-box strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  font-weight: var(--semi-bold);
+}
+
+.heroArticle .baca-juga-box ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.heroArticle .baca-juga-box li {
+  margin-bottom: 0.5rem;
+}
+
+.heroArticle .baca-juga-box a {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: var(--medium);
+  transition: all 0.2s ease;
+}
+
+.heroArticle .baca-juga-box a:hover {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+
 @media (max-width: 575.98px) {
 
   /* Foating CTA */
