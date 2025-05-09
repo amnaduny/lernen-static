@@ -5,7 +5,7 @@ import Head from "next/head";
 import { getAllPosts } from "../../lib/posts";
 import MarkdownIt from "markdown-it";
 import Link from "next/link";
-import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp, FaInstagram, FaTiktok,FaGlobe } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp, FaInstagram, FaTiktok, FaShareAlt } from 'react-icons/fa';
 
 // Initialize Markdown parser
 const md = new MarkdownIt();
@@ -52,42 +52,56 @@ export default function Post({ post }) {
 
     Instagram : @lernen.education
     Tiktok : @lernen.education
-    Website : lernenindonesia.com
+    Website : www.lernenindonesia.com
     Whatsapp : +62 823-3750-6356
       `;
 
-      const shareToSocialMedia = (platform) => {
-        const encodedTitle = encodeURIComponent(post.title);
-        const encodedSummary = encodeURIComponent(post.summary || "");
-        const encodedCredit = encodeURIComponent(creditText);
-        const encodedUrl = encodeURIComponent(shareUrl);
-      
-        let shareLink = "";
-      
-        if (platform === 'whatsapp') {
-          const whatsappText = `${post.title}\n\n${post.summary || ""}\n\nArtikel ini dipublikasikan oleh Lernen Education.\nKlik untuk membaca: ${shareUrl}\n\nInstagram : @lernen.education\nTiktok : @lernen.education\nWebsite : lernenindonesia.com\nWhatsapp : +62 823-3750-6356`;
-          shareLink = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
-        } else {
-          const fullText = `${encodedTitle}%0A${encodedSummary}%0A%0A${encodedCredit}`;
-          if (platform === 'facebook') {
-            shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${fullText}`;
-          } else if (platform === 'twitter') {
-            shareLink = `https://twitter.com/intent/tweet?text=${fullText}&url=${encodedUrl}`;
-          } else if (platform === 'linkedin') {
-            shareLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
-          } else if (platform === 'instagram') {
-            shareLink = `https://www.instagram.com/lernen.education?igsh=MWd5c3B1bWd2M2t0Yg==`;
-          } else if (platform === 'tiktok') {
-            shareLink = `https://www.tiktok.com/@lernen.education?is_from_webapp=1&sender_device=pc`;
-          } else if (platform === 'web') {
-            shareLink = `https://www.lernenindonesia.com`;
-          }
-        }
-      
-        window.open(shareLink, "_blank");
-      };
-      
-      const htmlConverter = md.render(post.content);
+  const shareToSocialMedia = (platform) => {
+    const encodedTitle = encodeURIComponent(post.title);
+    const encodedSummary = encodeURIComponent(post.summary || "");
+    const encodedCredit = encodeURIComponent(creditText);
+    const encodedUrl = encodeURIComponent(shareUrl);
+
+    let shareLink = "";
+
+    if (platform === 'whatsapp') {
+      const whatsappText = `${post.title}\n\n${post.summary || ""}\n\nArtikel ini dipublikasikan oleh Lernen Education.\nKlik untuk membaca: ${shareUrl}\n\nInstagram : @lernen.education\nTiktok : @lernen.education\nWebsite : lernenindonesia.com\nWhatsapp : +62 823-3750-6356`;
+      shareLink = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+    } else {
+      const fullText = `${encodedTitle}%0A${encodedSummary}%0A%0A${encodedCredit}`;
+      if (platform === 'facebook') {
+        shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${fullText}`;
+      } else if (platform === 'twitter') {
+        shareLink = `https://twitter.com/intent/tweet?text=${fullText}&url=${encodedUrl}`;
+      } else if (platform === 'linkedin') {
+        shareLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+      } else if (platform === 'instagram') {
+        shareLink = `https://www.instagram.com/lernen.education?igsh=MWd5c3B1bWd2M2t0Yg==`;
+      } else if (platform === 'tiktok') {
+        shareLink = `https://www.tiktok.com/@lernen.education?is_from_webapp=1&sender_device=pc`;
+      }
+    }
+
+    window.open(shareLink, "_blank");
+  };
+
+  const shareToNative = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: post.title,
+          text: post.summary,
+          url: shareUrl,
+        })
+        .then(() => console.log("Share successful"))
+        .catch((error) => console.error("Error sharing", error));
+    } else {
+      alert("Web Share API not supported on this browser. Please share manually.");
+    }
+  };
+
+
+  const htmlConverter = md.render(post.content);
   return (
     <div>
       {/* Page metadata */}
@@ -106,10 +120,10 @@ export default function Post({ post }) {
       <section className="heroArticle responsive-text">
         <div className="hero-image-container p-2 p-sm-4">
           {post.background && (
-            <img 
-            src={post.background} 
-            alt={post.title} 
-            className="hero-image" 
+            <img
+              src={post.background}
+              alt={post.title}
+              className="hero-image"
             />
           )}
         </div>
@@ -118,10 +132,10 @@ export default function Post({ post }) {
           <h1 className="mb-3">{post.title}</h1>
           <div className="d-flex align-items-center mb-2">
             {post.writer && (
-              <img 
-              src={post.writer} 
-              alt={post.author} 
-              className="writer-image rounded-circle me-2" 
+              <img
+                src={post.writer}
+                alt={post.author}
+                className="writer-image rounded-circle me-2"
               />
             )}
             <div>
@@ -131,29 +145,30 @@ export default function Post({ post }) {
           </div>
           {/* Tombol share */}
           <div className="share-buttons mt-4">
-            <p className="fs-5">Bagikan artikel ini:</p>
+            <p className="share-text">Bagikan artikel ini:</p>
             <div className="d-flex flex-wrap gap-2">
               <button onClick={() => shareToSocialMedia('facebook')} className="btn btn-outline-primary">
-                <FaFacebook /> 
+                <FaFacebook />
               </button>
               <button onClick={() => shareToSocialMedia('twitter')} className="btn btn-outline-info">
-                <FaTwitter /> 
+                <FaTwitter />
               </button>
-              <button onClick={() => shareToSocialMedia('linkedin')} className="btn btn-outline-secondary">
-                <FaLinkedin /> 
+              <button onClick={() => shareToSocialMedia('linkedin')} className="btn btn-outline-primary">
+                <FaLinkedin />
               </button>
               <button onClick={() => shareToSocialMedia('whatsapp')} className="btn btn-outline-success">
-                <FaWhatsapp /> 
+                <FaWhatsapp />
               </button>
               <button onClick={() => shareToSocialMedia('instagram')} className="btn btn-outline-danger">
-                <FaInstagram /> 
+                <FaInstagram />
               </button>
               <button onClick={() => shareToSocialMedia('tiktok')} className="btn btn-outline-dark">
-                <FaTiktok /> 
+                <FaTiktok />
               </button>
-              <button onClick={() => shareToSocialMedia('web')} className="btn btn-outline-info">
-              <FaGlobe />
+              <button onClick={shareToNative} className="btn btn-outline-secondary">
+                <FaShareAlt />
               </button>
+
             </div>
           </div>
 
@@ -177,10 +192,10 @@ export async function getStaticPaths() {
   const paths = posts.map((post) => ({
     params: { slug: post.slug },
   }));
-  return { 
-    paths, 
+  return {
+    paths,
     fallback: false, // Only build available slugs
-  }; 
+  };
 }
 
 // Fetch data for each slug
