@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import CTA from "../components/CTA";
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import FloatingCTA from "../components/FloatingCTA";
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -12,6 +13,7 @@ export default function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />;
       <CTA />
       <Footer />
+      <FloatingCTA/>
     </>
   );
 }
