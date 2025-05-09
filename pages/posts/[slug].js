@@ -5,6 +5,7 @@ import Head from "next/head";
 import { getAllPosts } from "../../lib/posts";
 import MarkdownIt from "markdown-it";
 import Link from "next/link";
+import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp, FaInstagram, FaTiktok, FaShareAlt } from 'react-icons/fa';
 
 // Initialize Markdown parser
 const md = new MarkdownIt();
@@ -37,22 +38,83 @@ md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
   }
   return defaultLinkRender(tokens, idx, options, env, self);
 };
-
 // The page component
 export default function Post({ post }) {
   const router = useRouter();
+  if (!post) return <div>Post not found</div>;
+  const baseUrl = "https://lernenindonesia.com";
+  const shareUrl = `${baseUrl}/posts/${post.slug}`;
 
-  if (!post) {
-    return <div>Post not found</div>;
-  }
+
+  const creditText = `
+    Artikel ini dipublikasikan oleh Lernen Education.
+    Klik untuk membaca: ${shareUrl}
+
+    Instagram : @lernen.education
+    Tiktok : @lernen.education
+    Website : www.lernenindonesia.com
+    Whatsapp : +62 823-3750-6356
+      `;
+
+  const shareToSocialMedia = (platform) => {
+    const encodedTitle = encodeURIComponent(post.title);
+    const encodedSummary = encodeURIComponent(post.summary || "");
+    const encodedCredit = encodeURIComponent(creditText);
+    const encodedUrl = encodeURIComponent(shareUrl);
+
+    let shareLink = "";
+
+    if (platform === 'whatsapp') {
+      const whatsappText = `${post.title}\n\n${post.summary || ""}\n\nArtikel ini dipublikasikan oleh Lernen Education.\nKlik untuk membaca: ${shareUrl}\n\nInstagram : @lernen.education\nTiktok : @lernen.education\nWebsite : lernenindonesia.com\nWhatsapp : +62 823-3750-6356`;
+      shareLink = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+    } else {
+      const fullText = `${encodedTitle}%0A${encodedSummary}%0A%0A${encodedCredit}`;
+      if (platform === 'facebook') {
+        shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${fullText}`;
+      } else if (platform === 'twitter') {
+        shareLink = `https://twitter.com/intent/tweet?text=${fullText}&url=${encodedUrl}`;
+      } else if (platform === 'linkedin') {
+        shareLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+      } else if (platform === 'instagram') {
+        shareLink = `https://www.instagram.com/lernen.education?igsh=MWd5c3B1bWd2M2t0Yg==`;
+      } else if (platform === 'tiktok') {
+        shareLink = `https://www.tiktok.com/@lernen.education?is_from_webapp=1&sender_device=pc`;
+      }
+    }
+
+    window.open(shareLink, "_blank");
+  };
+
+  const shareToNative = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: post.title,
+          text: post.summary,
+          url: shareUrl,
+        })
+        .then(() => console.log("Share successful"))
+        .catch((error) => console.error("Error sharing", error));
+    } else {
+      alert("Web Share API not supported on this browser. Please share manually.");
+    }
+  };
+
 
   const htmlConverter = md.render(post.content);
-
   return (
     <div>
       {/* Page metadata */}
       <Head>
         <title>{post.title} | Lernen Education</title>
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.summary || "Baca artikel dari Lernen Education."} />
+        <meta property="og:url" content={shareUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://lernenindonesia.com/assets/logo-lernen.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://lernenindonesia.com/assets/logo-lernen.png" />
+        <meta property="og:site_name" content="Lernen Education" />
       </Head>
 
       <section className="heroArticle responsive-text">
@@ -81,11 +143,38 @@ export default function Post({ post }) {
               <div className="text-muted small">Posted on {post.date}</div>
             </div>
           </div>
+          {/* Tombol share */}
+          <div className="share-buttons mt-4">
+            <p className="share-text">Bagikan artikel ini:</p>
+            <div className="d-flex flex-wrap gap-2">
+              <button onClick={() => shareToSocialMedia('facebook')} className="btn btn-outline-primary">
+                <FaFacebook />
+              </button>
+              <button onClick={() => shareToSocialMedia('twitter')} className="btn btn-outline-info">
+                <FaTwitter />
+              </button>
+              <button onClick={() => shareToSocialMedia('linkedin')} className="btn btn-outline-primary">
+                <FaLinkedin />
+              </button>
+              <button onClick={() => shareToSocialMedia('whatsapp')} className="btn btn-outline-success">
+                <FaWhatsapp />
+              </button>
+              <button onClick={() => shareToSocialMedia('instagram')} className="btn btn-outline-danger">
+                <FaInstagram />
+              </button>
+              <button onClick={() => shareToSocialMedia('tiktok')} className="btn btn-outline-dark">
+                <FaTiktok />
+              </button>
+              <button onClick={shareToNative} className="btn btn-outline-secondary">
+                <FaShareAlt />
+              </button>
+
+            </div>
+          </div>
 
           <hr />
           <div dangerouslySetInnerHTML={{ __html: htmlConverter }} />
           <hr />
-
           <div className="mt-4 mb-2">
             <Link href="/blog">
               <a className="btn custom-btn mx-auto">Kembali</a>
@@ -100,11 +189,9 @@ export default function Post({ post }) {
 // Generate all static paths
 export async function getStaticPaths() {
   const posts = getAllPosts();
-
   const paths = posts.map((post) => ({
     params: { slug: post.slug },
   }));
-
   return {
     paths,
     fallback: false, // Only build available slugs
@@ -116,7 +203,6 @@ export async function getStaticProps({ params }) {
   const posts = getAllPosts();
   const decodedSlug = decodeURIComponent(params.slug);
   const post = posts.find((p) => p.slug === decodedSlug);
-
   return {
     props: {
       post: post || null,

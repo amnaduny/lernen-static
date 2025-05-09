@@ -547,6 +547,24 @@ html {
   font-size: 12px;
 }
 
+
+/* Share Button */
+.share-buttons button {
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.share-buttons .btn {
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.share-buttons .share-text {
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+}
+
 /* Blog */
 .blog-container {
   margin: 2rem auto;
